@@ -23,10 +23,10 @@ const HotelList = () => {
           { 
             rooms && rooms.length > 0 ? (
               rooms.map((room, index) => {
-                const {_id: id, image, name, price} = room
+                const { id, image, name, price} = room
                 return(
                   <div key={index} className='bg-white shadow rounder-lg overflow-hidden'>
-                    <Link to={`/room/${id}`}>
+                    <Link to={`/room/${id}`}>  {/* Render danh sách khách sạn */} 
                       <img src={image} alt="" className='w-full h-80 object-cover'/>
                     </Link>
                     

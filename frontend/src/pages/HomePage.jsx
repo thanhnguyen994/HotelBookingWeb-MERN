@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from '../components/Hero'
 import HotelList from '../components/HotelList'
+import Facility from '../components/Facility'
 
 
 const HomePage = () => {
@@ -8,6 +9,7 @@ const HomePage = () => {
     <div>
       <Hero />
       <HotelList />
+      <Facility />
     </div>
   )
 }
