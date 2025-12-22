@@ -1,9 +1,9 @@
 import room1 from '../assets/Executive.jpg'
 import room2 from '../assets/Presidential.jpg'
-import room3 from '../assets/vip.jpg'
+import room3 from '../assets/Vip.jpg'
 import room4 from '../assets/Double.jpg'
-import room5 from '../assets/solo.jpg'
-import room6 from '../assets/family.jpg'
+import room5 from '../assets/Single.jpg'
+import room6 from '../assets/Family.jpg'
 
 export const roomData = [
   {

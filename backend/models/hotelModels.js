@@ -7,3 +7,7 @@ const hotelSchema = new mongoose.Schema({
     image: {type: String, require: true},
     date: {type: Number, require: true},
 })
+
+const hotelModel = mongoose.models.hotel || mongoose.model('hotel', hotelSchema);
+
+export default hotelModel

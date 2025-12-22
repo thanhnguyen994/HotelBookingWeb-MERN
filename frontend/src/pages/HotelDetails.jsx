@@ -11,7 +11,7 @@ const HotelDetail = () => {
   })
 
   return (
-    <div className='mx-auto max-w-8xl p-6 grid grid-cols-1 gap-8'>
+    <div className='mx-auto max-w-8xl p-6 grid grid-cols-1 md:grid-cols-3 gap-8'>
       {/*Bên trái */}
        <div className='md:col-span-2 space-y-6'>
         <div>
@@ -52,7 +52,7 @@ const HotelDetail = () => {
        <div className='bg-white p-6 mt-18 rounded-lg shadow-md'>
         <h2 className='text-2xl font-bold mb-4'>Book Your Stay</h2>
         <form  className='space-y-4'>
-          <input type="text" name="" placeholder='Name' className='w-full border-gray-300 p-3 rounded-lg'/>
+          <input type="text" name="" placeholder='Name' className='w-full border border-gray-300 p-3 rounded-lg'/>
           <input type="email" name="" placeholder='Email' className='w-full border border-gray-300 p-3 rounded-lg'/>
           <input type="tel" name="" placeholder='Phone Number' className='w-full border border-gray-300 p-3 rounded-lg'/>
           <div>
