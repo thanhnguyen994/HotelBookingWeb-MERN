@@ -1,4 +1,4 @@
-//File này để cấu hình cài đặt lưu trữ khi tải tệp lên
+//File này để xử lí dữ liệu upload file ảnh từ client lên server
 import multer from "multer";
 
 const storage = multer.diskStorage({

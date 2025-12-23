@@ -5,6 +5,7 @@ import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/coudinary.js";
 import hotelRouter from "./routes/hotelRoute.js"
 import reservationRoute from "./routes/reservationRoute.js"
+import userRouter from "./routes/userRoute.js";
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.use(express.json())
 app.use('/api/hotel', hotelRouter) 
 
 app.use('/api/reservations', reservationRoute)
+
+app.use('/api/user', userRouter)
 
 
 app.get('/', (req, res) => {
