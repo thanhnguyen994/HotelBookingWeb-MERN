@@ -15,6 +15,7 @@ const Login = ({setToken}) => {
 
             if(response.data.success) {
                 setToken(response.data.token)
+                localStorage.setItem('token', response.data.token)
             }
              else {
                 console.log(error);
