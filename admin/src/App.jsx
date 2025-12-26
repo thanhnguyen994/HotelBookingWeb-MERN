@@ -17,7 +17,7 @@ const App = () => {
       {
         !token ? (
           //Nếu người dùng chưa đăng nhập trước đây (token not available)
-          <Login />
+          <Login setToken={setToken}/>
         ) : (
           //Người dùng đã đăng nhập, hiển thị Sidebar (token available)
           <>
