@@ -42,10 +42,10 @@ const addHotel = async (req, res) => {
 const listHotel = async (req, res) => {
      try {
         const hotels = await hotelModel.find({})
-        res.json({succes: true, hotels})
+        res.json({succes:true, hotels})
      } catch (error) {
         console.log(error);
-        res.json({succes: false, message: "Hiển thị danh sách thất bại!"})
+        res.json({succes:false, message: "Lỗi hiển thị!"})
      }
 }
 
@@ -70,4 +70,38 @@ const singleHotel = async (req, res) => {
      }
 }
 
-export {addHotel, listHotel, removeHotel, singleHotel}
+const updateHotel = async (req, res) => {
+    try {
+        const { _id, name, description, price } = req.body;
+        const image = req.file;
+
+        // Tạo object 
+        const updateData = {
+            name,
+            description,
+            price: Number(price)
+        };
+
+        // LOGIC ẢNH: Chỉ upload và cập nhật nếu chọn ảnh mới
+        if (image) {
+            let result = await cloudinarry.uploader.upload(image.path, { resource_type: 'image' });
+            updateData.image = result.secure_url;
+        }
+
+        // Thực hiện update
+        // { new: true } trả về dữ liệu sau khi đã update 
+        const hotel = await hotelModel.findByIdAndUpdate(_id, updateData, { new: true });
+
+        if (!hotel) {
+            return res.json({ succes: false, message: "Không tìm thấy phòng để cập nhật!" });
+        }
+
+        res.json({ succes: true, message: "Cập nhật phòng thành công!", hotel });
+
+    } catch (error) {
+        console.log(error);
+        res.json({ succes: false, message: "Cập nhật thất bại!" });
+    }
+}
+
+export {addHotel, listHotel, removeHotel, singleHotel, updateHotel}

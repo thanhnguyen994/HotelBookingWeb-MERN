@@ -18,7 +18,7 @@ const Login = ({setToken}) => {
                 localStorage.setItem('token', response.data.token)
             }
              else {
-                console.log(error);
+                console.log("Lỗi đăng nhập:", response.data.message);
             }
 
 
@@ -29,7 +29,7 @@ const Login = ({setToken}) => {
     return (
      <div>
         <div className='flex justify-center items-center min-h-screen bg-gray-100 '>
-            <div className='bg-white shadow--md rounded-lg px-8 py-6 w-full max-w-md'>
+            <div className='bg-white shadow-md rounded-lg px-8 py-6 w-full max-w-md'>
                 <h1 className='text-2xl font-bold text-center text-gray-800 mb-4'>Đăng nhập Admin</h1>
                 <form onSubmit={adminLoginHandler}>
                     <div className='mb-4'>

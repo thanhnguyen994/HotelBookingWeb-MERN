@@ -5,7 +5,8 @@ import Reservation from './pages/Reservation'
 import {Route, Routes} from 'react-router-dom'
 import AddHotel  from './pages/AddHotel'
 import ListHotel  from './pages/ListHotel'
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const backendUrl = 'http://localhost:4000'
@@ -17,7 +18,8 @@ const App = () => {
     localStorage.setItem('token', token)
   }, [token])
   return (
-    <div>
+    <div className='bg-white min-h-screen '>
+      <ToastContainer position="top-right" autoClose={3000}/>
       {
         !token ? (
           //Nếu người dùng chưa đăng nhập trước đây (token not available)
@@ -25,13 +27,13 @@ const App = () => {
         ) : (
           //Người dùng đã đăng nhập, hiển thị Sidebar (token available)
           <>
-          <div>
+          <div className='flex w-full'>
             <Sidebar setToken={setToken}/>
-            <div>
+            <div className='w-[70%] ml-[max(5vw, 25px)] my-8 text-black text-base'>
               <Routes>
-                <Route path = '/add' element = {<AddHotel />} />
-                <Route path = '/list' element = {<ListHotel />} />
-                <Route path = '/add' element = {<Reservation />} />
+                <Route path = '/add' element = {<AddHotel token={token}/>} />
+                <Route path = '/list' element = {<ListHotel token={token}/>} />
+                <Route path = '/reservation' element = {<Reservation />} />
               </Routes>
             </div>
           </div>

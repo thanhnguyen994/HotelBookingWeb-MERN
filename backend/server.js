@@ -19,9 +19,7 @@ app.use(express.json())
 
 //endpoint API để gọi hotelRouter, từ router đó gọi các hàm
 app.use('/api/hotel', hotelRouter) 
-
 app.use('/api/reservations', reservationRoute)
-
 app.use('/api/user', userRouter)
 
 
